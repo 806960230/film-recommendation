@@ -1,0 +1,21 @@
+<import src="post-item/post-item-template.wxml"/><!--记住要有个斜杆-->
+
+<view>
+ <swiper vertical="false" indicator-dots="true" autoplay="true">
+    <swiper-item>
+       <image src="/images1/豪车1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+     <image src="/images1/豪车2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+     <image src="/images1/豪车3.jpg" ></image>
+    </swiper-item>
+ </swiper>
+ <block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="idx">
+   <view catchtap="onPostTap" data-post-id="{{item.postId}}">
+    <template is="post-item" data="{{...item}}"/><!--记住要有个斜杆-->
+   </view>
+    <!--...item这么写的话，模板里面就不用一个个写item.title item.img等等-->
+ </block>
+</view>
