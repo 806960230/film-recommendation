@@ -1,5 +1,5 @@
 var postsData=require('../../../data/posts-data.js')
-
+var app=getApp();//获取全局变量
 Page({
 
   /**
@@ -23,9 +23,9 @@ Page({
       title: '收藏',
       content: postCollected?'收藏该文章?':"取消收藏该文章?",
       showCancel: 'true',
-      cancelText: "不收藏",
+      cancelText: "取消",
       cancelColor: "#333",
-      confirmText: "收藏",
+      confirmText: "确定",
       confirmColor: "405f80",
       success:function(res){
         if(res.confirm){
@@ -69,11 +69,7 @@ Page({
       })
   },
   onMusicTap:function(event){
-      // const backgroundAudioManager = wx.getBackgroundAudioManager();
-      // backgroundAudioManager.title='夜夜夜',
-      // backgroundAudioManger.singer="梁静茹",
-      //   backgroundAudioManager.coverImgUrl = "http://y.gtimg.cn/music/photo_new/T002R150x150M000001TEc6V0kjpVC.jpg?max_age=2592000",
-      //   backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/C100003507bR0gDKBm.m4a?fromtag=38'
+      
       console.log('播放了吗');
     const backgroundAudioManager = wx.getBackgroundAudioManager()
 
@@ -82,14 +78,19 @@ Page({
     backgroundAudioManager.singer = '许巍'
     backgroundAudioManager.coverImgUrl = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'
     // 设置了 src 之后会自动播放
-    backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
+    backgroundAudioManager.src = 'http:\/\/ws.stream.qqmusic.qq.com\C400001QJyJ32zybEe.m4a?guid=2552400768&vkey=99F501B73D2D30F83779AE9B7891D212CAD553BDB014E9E16D59FB364640315C797B62851EA9700C05535219AAE6B37D7B0B8300162DF9BA&uin=7270&fromtag=66'
      backgroundAudioManager.play();
+    backgroundAudioManager.onError((err) => {
+      console.log(err)
+    })//bug播放不了???
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var globalData=app.globalData;//获取全局变量
+    console.log(globalData);
      var postId=options.id;//获取被点击后获得id
      var postData=postsData.postList[postId];
      this.data.currentPostId=postId;

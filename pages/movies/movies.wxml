@@ -1,0 +1,27 @@
+<import src="movie-list/movie-list-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
+<view class="search">
+  <icon type="search" class="search-img" size="13"color="#405f80"></icon><!--这是小程序已经做好的图标-->
+  <input type="text" placeholder="泰坦尼克号" placeholder-class="placeholder"
+  bindfocus="onBindFocus"
+  bindconfirm="onBindConfirm"/>
+  <image src="/images/icon/xx.png" catchtap="onCancelImgTap"
+  class="xx-img"
+  wx:if="{{searchPannelShow}}"></image>
+</view>
+<view class="big-container" wx:if="{{containerShow}}">
+<view class="movies-template">
+<template is="movieListTemplate" data="{{...inTheaters}}"/>
+</view>
+<view class="movies-template">
+<template is="movieListTemplate" data="{{...commingSoon}}"/>
+</view>
+<view class="movies-template">
+<template is="movieListTemplate" data="{{...top250}}"/>
+</view>
+</view>
+
+
+<view class="search-pannel" wx:if="{{searchPannelShow}}">
+   <template is="movieGridTemplate" data="{{...searchResult}}"/>
+</view>

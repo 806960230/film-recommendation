@@ -1,6 +1,6 @@
 Page({
   onTap:function(){
-    wx.redirectTo({
+    wx.switchTab({//不要用navigateTo,否则会报错因为tabbar不允许用navigateTo到tabbar的启动页
     
       url:"../posts/posts"
     });

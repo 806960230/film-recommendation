@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    domainDuoBan:"https://douban.uieee.com/v2/movie/"
   }
 })

@@ -1,0 +1,11 @@
+@import "../movie/movie-template.wxss";
+@import "../stars/stars-template.wxss";
+.single-view-container{
+  float:left;/*为什么不使用flex布局呢,因为使用flex布局不利于使用sroll-view滑动组件的使用,如果不是使用该组件，小程序大部分都使用flex布局*/
+  margin-bottom:40rpx;
+}
+
+.grid-container{
+  margin:40rpx 0 40rpx 6rpx;
+  height:1300rpx;/*要设置高度才能使得触发scroll-view组件的scrolllower函数*/
+}
